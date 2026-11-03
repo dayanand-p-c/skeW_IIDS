@@ -1,0 +1,5 @@
+# Dependencies
+node_modules/
+
+# Backend config (may contain secrets)
+backend/**/application.yml
