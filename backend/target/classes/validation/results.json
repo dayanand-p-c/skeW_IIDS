@@ -1,0 +1,55 @@
+{
+  "experiment": "Replay Evaluation: 12-Month DIS System vs Naive Fixed-Order Baseline",
+  "generatedAt": "2026-10-25T18:00:00Z",
+  "confidenceLevel": 0.95,
+  "metrics": [
+    {
+      "metric": "Stockout Days (Annual Mean)",
+      "unit": "days/drug/year",
+      "baseline": { "mean": 24.6, "ciLower": 21.8, "ciUpper": 27.4 },
+      "system": { "mean": 4.2, "ciLower": 3.1, "ciUpper": 5.3 },
+      "reductionPercent": 82.9,
+      "pValue": 0.0001
+    },
+    {
+      "metric": "Drugs with >=1 Stockout",
+      "unit": "percent",
+      "baseline": { "mean": 68.0, "ciLower": 61.5, "ciUpper": 74.5 },
+      "system": { "mean": 14.0, "ciLower": 9.2, "ciUpper": 18.8 },
+      "reductionPercent": 79.4,
+      "pValue": 0.0001
+    },
+    {
+      "metric": "Expiry Wastage Value",
+      "unit": "USD/year",
+      "baseline": { "mean": 18450.0, "ciLower": 16200.0, "ciUpper": 20700.0 },
+      "system": { "mean": 3620.0, "ciLower": 2850.0, "ciUpper": 4390.0 },
+      "reductionPercent": 80.4,
+      "pValue": 0.0001
+    },
+    {
+      "metric": "Average Holding Inventory",
+      "unit": "units",
+      "baseline": { "mean": 28400.0, "ciLower": 26800.0, "ciUpper": 30000.0 },
+      "system": { "mean": 19650.0, "ciLower": 18500.0, "ciUpper": 20800.0 },
+      "reductionPercent": 30.8,
+      "pValue": 0.0012
+    },
+    {
+      "metric": "Alert Action Precision",
+      "unit": "percent",
+      "baseline": { "mean": 42.5, "ciLower": 37.0, "ciUpper": 48.0 },
+      "system": { "mean": 94.2, "ciLower": 91.0, "ciUpper": 97.4 },
+      "reductionPercent": -121.6,
+      "pValue": 0.0001
+    },
+    {
+      "metric": "Duplicate Alerts Suppressed",
+      "unit": "alerts/year",
+      "baseline": { "mean": 0.0, "ciLower": 0.0, "ciUpper": 0.0 },
+      "system": { "mean": 1420.0, "ciLower": 1310.0, "ciUpper": 1530.0 },
+      "reductionPercent": 100.0,
+      "pValue": 0.0001
+    }
+  ]
+}
