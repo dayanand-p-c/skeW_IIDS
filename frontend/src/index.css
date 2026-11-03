@@ -1,0 +1,210 @@
+@import '@fontsource/ibm-plex-sans/400.css';
+@import '@fontsource/ibm-plex-sans/500.css';
+@import '@fontsource/ibm-plex-sans/600.css';
+@import '@fontsource/ibm-plex-mono/400.css';
+@import '@fontsource/ibm-plex-mono/500.css';
+@import '@fontsource/ibm-plex-mono/600.css';
+@import './theme/tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: 0;
+    color: var(--color-text);
+  }
+
+  /* Force tabular numbers for all numerical and data displays */
+  table,
+  .tabular-nums,
+  [data-tabular="true"],
+  .font-mono {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Surface Primitives (Flat surfaces, 1px border, 8px radius, minimal 0 1px 2px shadow) */
+.glass-panel,
+.surface-panel {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06);
+}
+
+.glass-card,
+.surface-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06);
+  transition: border-color 150ms ease-out, background-color 150ms ease-out;
+}
+
+.glass-card:hover,
+.surface-card:hover {
+  border-color: var(--color-border-strong);
+}
+
+/* Standardized Button Tokens */
+.btn-primary {
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 6px;
+  background-color: var(--color-brand);
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid transparent;
+  transition: background-color 150ms ease-out;
+}
+.btn-primary:hover {
+  background-color: var(--color-brand-hover);
+}
+.btn-primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-surface), 0 0 0 4px var(--color-brand);
+}
+
+.btn-secondary {
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 6px;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid var(--color-border);
+  transition: background-color 150ms ease-out, border-color 150ms ease-out;
+}
+.btn-secondary:hover {
+  background-color: var(--color-surface-2);
+  border-color: var(--color-border-strong);
+}
+.btn-secondary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-surface), 0 0 0 4px var(--color-brand);
+}
+
+.btn-destructive {
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 6px;
+  background-color: var(--color-status-critical);
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid transparent;
+  transition: opacity 150ms ease-out;
+}
+.btn-destructive:hover {
+  opacity: 0.9;
+}
+.btn-destructive:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-surface), 0 0 0 4px var(--color-status-critical);
+}
+
+/* Standardized Form Input Tokens (36px, 1px border, brand focus ring) */
+.form-input {
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 6px;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  font-size: 13px;
+  transition: border-color 150ms ease-out, box-shadow 150ms ease-out;
+}
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 2px var(--color-brand-tint);
+}
+
+/* Standard Table Styles (Sticky header on surface-2, row hover surface-2, 40px rows) */
+table.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  line-height: 20px;
+}
+table.data-table th {
+  position: sticky;
+  top: 0;
+  background-color: var(--color-surface-2);
+  color: var(--color-text-muted);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0;
+  border-bottom: 1px solid var(--color-border);
+  padding: 10px 14px;
+  text-align: left;
+  z-index: 1;
+}
+table.data-table td {
+  height: 40px;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+table.data-table tbody tr:hover {
+  background-color: var(--color-surface-2);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
